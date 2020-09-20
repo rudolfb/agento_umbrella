@@ -15,5 +15,9 @@ npm install -D tailwindcss postcss-loader
 npm install alpinejs
 ```
 
+# Markdown
+
+https://www.markdownguide.org/basic-syntax
+
 
 
