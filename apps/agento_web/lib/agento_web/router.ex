@@ -18,6 +18,13 @@ defmodule AgentoWeb.Router do
     pipe_through :browser
 
     live "/", PageLive, :index
+
+    live "/countries", CountryLive.Index, :index
+    live "/countries/new", CountryLive.Index, :new
+    live "/countries/:id/edit", CountryLive.Index, :edit
+
+    live "/countries/:id", CountryLive.Show, :show
+    live "/countries/:id/show/edit", CountryLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.

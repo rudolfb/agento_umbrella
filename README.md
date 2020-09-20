@@ -89,49 +89,84 @@ Creates a migration (no models).
 ## References
 [Ecto.Migration](https://hexdocs.pm/ecto_sql/Ecto.Migration.html#content)
 
+```
+rb@RB-HOME:~/elixir/elixir/agento_umbrella/apps/agento_web$ mix phx.gen.live Basedata.CountryContext Country countries alpha2:string alpha3:string numeric3:string name:string
+* creating lib/agento_web/live/country_live/show.ex
+* creating lib/agento_web/live/country_live/index.ex
+* creating lib/agento_web/live/country_live/form_component.ex
+* creating lib/agento_web/live/country_live/form_component.html.leex
+* creating lib/agento_web/live/country_live/index.html.leex
+* creating lib/agento_web/live/country_live/show.html.leex
+* creating test/agento_web/live/country_live_test.exs
+* creating lib/agento_web/live/modal_component.ex
+* creating lib/agento_web/live/live_helpers.ex
+* creating /home/rb/elixir/elixir/agento_umbrella/apps/agento/lib/agento/basedata/country_context/country.ex
+* creating /home/rb/elixir/elixir/agento_umbrella/apps/agento/priv/repo/migrations/20200920153337_create_countries.exs
+* creating /home/rb/elixir/elixir/agento_umbrella/apps/agento/lib/agento/basedata/country_context.ex
+* injecting /home/rb/elixir/elixir/agento_umbrella/apps/agento/lib/agento/basedata/country_context.ex
+* creating /home/rb/elixir/elixir/agento_umbrella/apps/agento/test/agento/basedata/country_context_test.exs
+* injecting /home/rb/elixir/elixir/agento_umbrella/apps/agento/test/agento/basedata/country_context_test.exs
+* injecting lib/agento_web.ex
+
+Add the live routes to your browser scope in lib/agento_web/router.ex:
+
+    live "/countries", CountryLive.Index, :index
+    live "/countries/new", CountryLive.Index, :new
+    live "/countries/:id/edit", CountryLive.Index, :edit
+
+    live "/countries/:id", CountryLive.Show, :show
+    live "/countries/:id/show/edit", CountryLive.Show, :edit
+
+
+Remember to update your repository by running migrations:
+
+    $ mix ecto.migrate
+```
+
 CommunicationType: TELP,TELB,MTEL,EML,FAXP,FAXB,EML2,EML3
 AddressType: BUS, PRV
 
+cd apps/agento_web/
 
-mix phx.gen.html Basedata.CountryContext Country countries alpha2:string alpha3:string numeric3:string name:string
+mix phx.gen.live Basedata.CountryContext Country countries alpha2:string alpha3:string numeric3:integer name:string
 
-mix phx.gen.html Basedata.CurrencyContext Currency currencies code:string name:string is_fund:boolean is_complimentary:boolean is_metal:boolean
+mix phx.gen.live Basedata.CurrencyContext Currency currencies code:string name:string is_fund:boolean is_complimentary:boolean is_metal:boolean
 
-mix phx.gen.html Basedata.AirportContext Airport airports country_id:references:countries region_name:string iata:string icao:string airport:string latitude:float longitude:float
+mix phx.gen.live Basedata.AirportContext Airport airports country_id:references:countries region_name:string iata:string icao:string airport:string latitude:float longitude:float
 
-mix phx.gen.html Basedata.LanguageContext Language languages code3:string bcode:string tcode:string code2:string language_name:string scope:string type:string macro_language_code:string macro_language_name:string is_child:boolean is_correspondance_language:boolean sort_order:integer is_correspondance_language_active:boolean is_visible:boolean
+mix phx.gen.live Basedata.LanguageContext Language languages code3:string bcode:string tcode:string code2:string language_name:string scope:string type:string macro_language_code:string macro_language_name:string is_child:boolean is_correspondance_language:boolean sort_order:integer is_correspondance_language_active:boolean is_visible:boolean
 
-mix phx.gen.html Basedata.CommunicationTypeContext CommunicationTypeCode communication_type_codes code:string
+mix phx.gen.live Basedata.CommunicationTypeContext CommunicationTypeCode communication_type_codes code:string
 
-mix phx.gen.html Basedata.AirlineContext Airline airlines id_nr:string name:string alias:string iata:string icao:string callsign:string country_name:string active:boolean
+mix phx.gen.live Basedata.AirlineContext Airline airlines id_nr:string name:string alias:string iata:string icao:string callsign:string country_name:string active:boolean
 
-mix phx.gen.html Basedata.TravelCardTypeContext TravelCardType travelcardtypes name:string
+mix phx.gen.live Basedata.TravelCardTypeContext TravelCardType travelcardtypes name:string
 
-mix phx.gen.html Basedata.IdentificationTypeCodeContext IdentificationTypeCode identificationtypecodes name:string
+mix phx.gen.live Basedata.IdentificationTypeCodeContext IdentificationTypeCode identificationtypecodes name:string
 
-mix phx.gen.html Basedata.AddressTypeContext AddressType addresstypes code:string
+mix phx.gen.live Basedata.AddressTypeContext AddressType addresstypes code:string
 
-mix phx.gen.html Basedata.RoleTypeContext RoleType roletypes code:string
+mix phx.gen.live Basedata.RoleTypeContext RoleType roletypes code:string
 
 
-mix phx.gen.html OrganisationContext Organisation organisations name:string abbreviation:string foundationdate:date begindate:datetime correspondancelanguage1_id:references:languages description:string enddate:datetime is_deleted:boolean popularname:string
+mix phx.gen.live OrganisationContext Organisation organisations name:string abbreviation:string foundationdate:date begindate:datetime correspondancelanguage1_id:references:languages description:string enddate:datetime is_deleted:boolean popularname:string
 
-mix phx.gen.html OrganisationNameTransContext OrganisationNameTrans organisation_name_trans name:string language:references:languages organisation_id:references:organisations
+mix phx.gen.live OrganisationNameTransContext OrganisationNameTrans organisation_name_trans name:string language:references:languages organisation_id:references:organisations
 
-mix phx.gen.html IndividualContext Individual individuals lastname:string firstname:string gender:string native_language_code:string birthdate:date correspondancelanguage1_id:references:languages  dateofdeath:date displayname:string is_deleted:boolean nationalitycountrycode_id:references:countries
+mix phx.gen.live IndividualContext Individual individuals lastname:string firstname:string gender:string native_language_code:string birthdate:date correspondancelanguage1_id:references:languages  dateofdeath:date displayname:string is_deleted:boolean nationalitycountrycode_id:references:countries
 
-mix phx.gen.html AddressContext Address addresses street1:string street2:string city:string zipcode:string state:string pobox:string is_pobox:boolean country_id:references:countries begindate:datetime enddate:datetime active:boolean addresstype_id:references:addresstypes individual_id:references:individuals organisation_id:references:organisations 
+mix phx.gen.live AddressContext Address addresses street1:string street2:string city:string zipcode:string state:string pobox:string is_pobox:boolean country_id:references:countries begindate:datetime enddate:datetime active:boolean addresstype_id:references:addresstypes individual_id:references:individuals organisation_id:references:organisations 
 
-mix phx.gen.html CommunicationContext Communication communications value:string typecode:string communication_type_code_id:references:communication_type_codes individual_id:references:individuals organisation_id:references:organisations 
+mix phx.gen.live CommunicationContext Communication communications value:string typecode:string communication_type_code_id:references:communication_type_codes individual_id:references:individuals organisation_id:references:organisations 
 
-mix phx.gen.html TravelPreferenceContext TravelPreference travelpreferences has_wheelchair:boolean homeairport_location:string labelname:string mealtype_code:string preferred_aircraft_seat_type_code:string individual_id:references:individuals
+mix phx.gen.live TravelPreferenceContext TravelPreference travelpreferences has_wheelchair:boolean homeairport_location:string labelname:string mealtype_code:string preferred_aircraft_seat_type_code:string individual_id:references:individuals
 
-mix phx.gen.html FrequentFlyerCardContext FrequentFlyerCard frequentflyercards airline_name:string airline_iata_code:string frequent_flyer_number:string travelpreference_id:references:travelpreferences
+mix phx.gen.live FrequentFlyerCardContext FrequentFlyerCard frequentflyercards airline_name:string airline_iata_code:string frequent_flyer_number:string travelpreference_id:references:travelpreferences
 
-mix phx.gen.html TravelCardContext TravelCard travelcards travelcardtype:references:travelcardtypes travelcardnumber:string expiration:datetime travelpreference_id:references:travelpreferences
+mix phx.gen.live TravelCardContext TravelCard travelcards travelcardtype:references:travelcardtypes travelcardnumber:string expiration:datetime travelpreference_id:references:travelpreferences
 
-mix phx.gen.html IdentificationContext Identifications identification country_of_issue_id:references:countries dateofissue:datetime document_country_code_id:references:countries document_number:string expirationdate:datetime identificationtypecode:string is_main_passport:boolean issuing_authority:string place_of_issue:string individual_id:references:individuals
+mix phx.gen.live IdentificationContext Identifications identification country_of_issue_id:references:countries dateofissue:datetime document_country_code_id:references:countries document_number:string expirationdate:datetime identificationtypecode:string is_main_passport:boolean issuing_authority:string place_of_issue:string individual_id:references:individuals
 
-mix phx.gen.html RoleContext Role roles individual_id:references:individuals organisation_id:references:organisations begindate:datetime enddate:datetime roletypecode_id:references:roletypes
+mix phx.gen.live RoleContext Role roles individual_id:references:individuals organisation_id:references:organisations begindate:datetime enddate:datetime roletypecode_id:references:roletypes
 
 
