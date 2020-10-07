@@ -126,6 +126,13 @@ Creates a migration (no models).
 
 ## References
 [Ecto.Migration](https://hexdocs.pm/ecto_sql/Ecto.Migration.html#content)
+https://commons.wikimedia.org/wiki/Category:SVG_flags_of_languages
+https://remixicon.com/
+https://feathericons.com/
+https://fontawesome.com/
+https://ionicons.com/
+
+
 
 ```
 rb@RB-HOME:~/elixir/elixir/agento_umbrella/apps/agento_web$ mix phx.gen.live Basedata.CountryContext Country countries alpha2:string alpha3:string numeric3:string name:string
