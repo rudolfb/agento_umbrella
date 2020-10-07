@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
   <head>
     <meta charset="utf-8"/>
+    <link href="images/logo.svg" rel="shortcut icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Online Travel Services AG">
     <%= csrf_meta_tag() %>
     <%= live_title_tag assigns[:page_title] || "Agento", suffix: " · Phoenix Framework" %>
     <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </head>
-  <body>
+  <body class="app">
     <header>
       <section class="container">
         <nav role="navigation">
@@ -25,6 +27,89 @@
         </a>
       </section>
     </header>
+    <!-- BEGIN: Mobile Menu -->
+    <div class="mobile-menu md:hidden">
+      <div class="mobile-menu-bar">
+        <a href="" class="flex mr-auto">
+          <img alt="Agent Online" class="w-6" src="images/logo.svg">
+        </a>
+        <a href="javascript:;" id="mobile-menu-toggler"> <i data-feather="bar-chart-2" class="w-8 h-8 text-white transform -rotate-90"></i> </a>
+      </div>
+      <ul class="border-t border-theme-24 py-5 hidden">
+        <li>
+          <a href="index.html" class="menu">
+            <div class="menu__icon"> <i data-feather="home"></i> </div>
+            <div class="menu__title"> Dashboard </div>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:;" class="menu">
+            <div class="menu__icon"> <i data-feather="box"></i> </div>
+            <div class="menu__title"> Base data <i data-feather="chevron-down" class="menu__sub-icon"></i> </div>
+          </a>
+          <ul class="">
+            <li>
+              <a href="index.html" class="menu">
+                <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                <div class="menu__title"> Side Menu </div>
+              </a>
+            </li>
+            <li>
+              <a href="simple-menu-light-dashboard.html" class="menu">
+                <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                <div class="menu__title"> Simple Menu </div>
+              </a>
+            </li>
+            <li>
+              <a href="top-menu-light-dashboard.html" class="menu">
+                <div class="menu__icon"> <i data-feather="activity"></i> </div>
+                <div class="menu__title"> Top Menu </div>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- END: Mobile Menu -->
+    <div class="flex">
+      <!-- BEGIN: Side Menu -->
+      <nav class="side-nav">
+        <a href="" class="intro-x flex items-center pl-5 pt-4">
+          <img alt="Midone Tailwind HTML Admin Template" class="w-6" src="images/logo.svg">
+          <span class="hidden xl:block text-white text-lg ml-3"><span class="font-medium">Agent Online</span> </span>
+        </a>
+        <div class="side-nav__devider my-6"></div>
+        <ul>
+          <li>
+            <a href="/" class="side-menu">
+              <div class="side-menu__icon"> <i data-feather="home"></i> </div>
+              <div class="side-menu__title"> Dashboard </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:;" class="side-menu side-menu--active">
+              <div class="side-menu__icon"> <i data-feather="edit"></i> </div>
+              <div class="side-menu__title"> Base data <i data-feather="chevron-down" class="side-menu__sub-icon"></i> </div>
+            </a>
+            <ul class="side-menu__sub-open">
+              <li>
+                <a href="/countries" class="side-menu side-menu--active">
+                  <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                  <div class="side-menu__title"> Countries </div>
+                </a>
+              </li>
+              <li>
+                <a href="simple-menu-light-dashboard.html" class="side-menu">
+                  <div class="side-menu__icon"> <i data-feather="activity"></i> </div>
+                  <div class="side-menu__title"> Simple Menu </div>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <!-- END: Side Menu -->
     <%= @inner_content %>
   </body>
 </html>
