@@ -41,6 +41,16 @@ module.exports = (env, options) => {
             "css-loader",
             "postcss-loader"
           ],
+        },
+        {
+          test: /\.(svg|woff2?)$/,
+          use: [{
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: '../fonts',
+            }
+          }],
         }
       ]
     },
