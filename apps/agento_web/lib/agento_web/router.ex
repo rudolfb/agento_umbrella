@@ -25,6 +25,9 @@ defmodule AgentoWeb.Router do
 
     live "/countries/:id", CountryLive.Show, :show
     live "/countries/:id/show/edit", CountryLive.Show, :edit
+
+    live "/app", AgentoLive.Index, :index
+    live "/app/:submenu", AgentoLive.Index, :index, test: "test"
   end
 
   # Other scopes may use custom stacks.
