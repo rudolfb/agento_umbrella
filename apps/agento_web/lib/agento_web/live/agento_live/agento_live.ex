@@ -18,10 +18,10 @@ defmodule AgentoWeb.AgentoLive.Index do
     IO.inspect(assigns)
 
     ~L"""
-    <%= live_render(@socket, AgentoWeb.MobileMenuLive, id: "") %>
+    <%= live_component(@socket, AgentoWeb.MobileMenuLive) %>
 
     <div class="flex">
-      <%= live_render(@socket, AgentoWeb.SideMenuLive, id: "") %>
+      <%= live_component(@socket, AgentoWeb.SideMenuLive, id: "basedata") %>
 
       <!-- BEGIN: Content -->
         <div class="content">

@@ -19,6 +19,8 @@ defmodule AgentoWeb.Router do
 
     live "/", PageLive, :index
 
+    live "/testlive", TestLiveLive, :index
+
     live "/countries", CountryLive.Index, :index
     live "/countries/new", CountryLive.Index, :new
     live "/countries/:id/edit", CountryLive.Index, :edit

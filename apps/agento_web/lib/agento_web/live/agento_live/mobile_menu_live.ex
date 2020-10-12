@@ -1,9 +1,5 @@
 defmodule AgentoWeb.MobileMenuLive do
-  use AgentoWeb, :live_view
-
-  def mount(_params, _session, socket) do
-    {:ok, socket}
-  end
+  use Phoenix.LiveComponent
 
   def render(assigns) do
     ~L"""
